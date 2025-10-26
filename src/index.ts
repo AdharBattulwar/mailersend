@@ -22,6 +22,14 @@ function escapeHtml(s: string) {
     .replace(/'/g, "&#039;");
 }
 
+app.get("/", (c) => {
+  return c.json({ ok: true, message: "Hello Hono!" });
+});
+
+app.get("/health", (c) => {
+  return c.json({ ok: true, message: "MailerSend API is running" });
+});
+
 app.post("/api/v1/mail/send", async (c) => {
   try {
     const payload = await c.req.json();
