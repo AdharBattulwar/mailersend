@@ -4,10 +4,8 @@
 FROM oven/bun:latest AS base
 WORKDIR /app
 
-ARG ENV_FILE=.env
+# Copy project files
 COPY . .
-
-COPY ${ENV_FILE} .env
 
 # Install production dependencies
 RUN bun install --production
